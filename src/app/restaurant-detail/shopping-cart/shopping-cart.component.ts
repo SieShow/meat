@@ -20,4 +20,16 @@ export class ShoppingCartComponent implements OnInit {
     return this.shoppingCartService.total()
   }
 
+  removerItem(item: any) {
+    this.shoppingCartService.removerItem(item)
+  }
+
+  addItem(item: any) {
+    this.shoppingCartService.addItem(item)
+  }
+
+  clear() {
+    this.shoppingCartService.clear()
+  }
+
 }
