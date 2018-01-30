@@ -5,7 +5,7 @@ import { NgModel } from '@angular/forms';
   selector: 'mt-input-container',
   templateUrl: './input.component.html'
 })
-export class InputComponent implements OnInit {
+export class InputComponent implements OnInit, AfterContentInit {
 
   input: any;
   @Input() label: string;
@@ -20,8 +20,16 @@ export class InputComponent implements OnInit {
 
   ngAfterContentInit(): void {
     this.input = this.model;
-    if(this.input === undefined){
+    if (this.input === undefined) {
       throw new Error('Esse componente deve ser usado com uma diretiva ngModel');
     }
+  }
+
+  hasSucess(): boolean {
+    return this.input.valid && (this.input.dirty || this.input.touched);
+  }
+
+  hasError(): boolean {
+    return this.input.invalid && (this.input.dirty || this.input.touched);
   }
 }
