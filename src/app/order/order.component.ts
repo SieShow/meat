@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { RadioOption } from 'app/shared/radio/radio-option';
-import { OrderService } from 'app/order/order.service';
-import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model';
-import { Order, OrderItem } from './order.model';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core'
+import { RadioOption } from 'app/shared/radio/radio-option'
+import { OrderService } from 'app/order/order.service'
+import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model'
+import { Order, OrderItem } from './order.model'
+import { Router } from '@angular/router'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 
 @Component({
   selector: 'mt-order',
@@ -12,17 +13,31 @@ import { Router } from '@angular/router';
 
 export class OrderComponent implements OnInit {
 
-  delivery: number = 8;
+  orderForm: FormGroup
+
+  numberPattern = /^[0-9]*$/
+
+  delivery = 8
 
   paymentOptions: RadioOption[] = [
     { label: 'Dinheiro', value: 'MON' },
     { label: 'Cartão de Débito', value: 'DEB' },
     { label: 'Cartão de Refeição', value: 'REF' }
-  ];
+  ]
 
-  constructor(private orderService: OrderService, private router: Router) { }
+  constructor(private orderService: OrderService, private router: Router,
+    private formbuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.orderForm = this.formbuilder.group({
+      name: this.formbuilder.control('', [Validators.required, Validators.minLength(5)]),
+      email: this.formbuilder.control('', [Validators.required, Validators.email]),
+      emailConfirmation: this.formbuilder.control('', [Validators.required, Validators.email]),
+      address: this.formbuilder.control('', [Validators.required, Validators.minLength(5)]),
+      number: this.formbuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
+      optionalAddress: this.formbuilder.control(''),
+      paymentOption: this.formbuilder.control('', [Validators.required])
+    })
   }
 
   itensValue(): number {
