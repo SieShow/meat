@@ -1,14 +1,14 @@
-import {NgModule} from '@angular/core'
-import {RouterModule, Routes} from '@angular/router'
-
-import {AboutComponent} from './about.component'
+import { NgModule } from '@angular/core'
+import { AboutComponent } from './about.component'
+import { RouterModule, Routes } from '@angular/router'
 
 const ROUTES: Routes = [
-  {path: '', component: AboutComponent}
+  { path: '', component: AboutComponent }
 ]
-
 @NgModule({
-  declarations:[AboutComponent],
-  imports: [RouterModule.forChild(ROUTES)]
+  declarations: [AboutComponent],
+  imports: [RouterModule, RouterModule.forChild(ROUTES)],
 })
-export class AboutModule {}
+
+// tslint:disable-next-line:eofline
+export class AboutModule { }
