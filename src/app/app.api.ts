@@ -1,1 +1,1 @@
-export const MEAT_API = 'http://localhost:3000'
+export const MEAT_API = 'https://json-server-heroku-jhdahxhwmt.now.sh'
