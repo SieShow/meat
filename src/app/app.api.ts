@@ -1,1 +1,1 @@
-export const MEAT_API = 'git '
+export const MEAT_API = 'https://json-server-heroku-jhdahxhwmt.now.sh'
