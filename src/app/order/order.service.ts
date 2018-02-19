@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { ShoppingCartService } from 'app/restaurant-detail/shopping-cart/shopping-cart.service';
-import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model';
-import { Http, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import { Order, OrderItem } from './order.model';
-import { MEAT_API } from '../app.api';
+import { Injectable } from '@angular/core'
+import { ShoppingCartService } from 'app/restaurant-detail/shopping-cart/shopping-cart.service'
+import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model'
+import { Http, Headers, RequestOptions } from '@angular/http'
+import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/operator/map'
+import { Order } from './order.model'
+import { MEAT_API } from '../app.api'
 @Injectable()
 export class OrderService {
 
@@ -13,27 +13,27 @@ export class OrderService {
     }
 
     cartItems(): CartItem[] {
-        return this.cartService.items;
+        return this.cartService.items
     }
 
     itensValue(): number {
-        return this.cartService.total();
+        return this.cartService.total()
     }
 
     increaseQtd(item: CartItem) {
-        this.cartService.increaseQtd(item);
+        this.cartService.increaseQtd(item)
     }
 
     decreaseQtd(item: CartItem) {
-        this.cartService.decreaseQtd(item);
+        this.cartService.decreaseQtd(item)
     }
 
     remove(item: CartItem) {
-        this.cartService.removerItem(item);
+        this.cartService.removerItem(item)
     }
 
     clear() {
-        this.cartService.clear();
+        this.cartService.clear()
     }
 
     checkOrder(order: Order): Observable<string> {

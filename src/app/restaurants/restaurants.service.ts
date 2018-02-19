@@ -16,8 +16,8 @@ export class RestaurantService {
   /**
   * Retorna uma array de restaurantes
   */
-  getRestaurants(): Observable<Restaurant[]> {
-    return this.http.get(`${MEAT_API}/restaurants`)
+  getRestaurants(search?: string): Observable<Restaurant[]> {
+    return this.http.get(`${MEAT_API}/restaurants`, {params: {q: search}})
       .map(response => response.json())
       .catch(ErrorHandle.handleError)
   }
