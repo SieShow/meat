@@ -6,9 +6,9 @@ import { RadioComponent } from './radio/radio.component'
 import { RattingComponent } from '../ratting/ratting.component'
 import { ShoppingCartService } from '../restaurant-detail/shopping-cart/shopping-cart.service'
 import { RestaurantService } from '../restaurants/restaurants.service'
-import { OrderService } from 'app/order/order.service';
+import { OrderService } from 'app/order/order.service'
 import { SnackbarComponent } from '../shared/messages/snackbar/snackbar.component'
-import { NotificationService } from './messages/notification.service';
+import { NotificationService } from './messages/notification.service'
 
 @NgModule({
     declarations: [

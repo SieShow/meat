@@ -1,4 +1,8 @@
-const jsonServer = require('json-server')
+import * as jsonServer from 'json-server'
+import { Express } from 'express'
+import * as fs from 'fs'
+import * as https from 'https'
+
 const server = jsonServer.create()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
@@ -22,8 +26,15 @@ server.use((req, res, next) => {
     next()
 })
 
+
 // Use default router
 server.use(router)
-server.listen(3000, () => {
+
+const options = {
+    cert: fs.readFileSync('./keys/cert.pem'),
+    key: fs.readFileSync('./keys/key.pem')
+}
+
+https.createServer(options, server).listen(3000, () => {
     console.log('JSON Server is running')
 })
