@@ -26,6 +26,9 @@ server.use((req, res, next) => {
     next()
 })
 
+server.post('/login', (req, resp) => {
+    resp.json({ message: 'Ok!' })
+})
 
 // Use default router
 server.use(router)
