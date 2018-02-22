@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { trigger, state, style, transition, animate } from '@angular/animations'
-import { NotificationService } from '../notification.service';
+import { NotificationService } from '../notification.service'
 import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/observable/timer'
 import 'rxjs/add/operator/do'
@@ -28,7 +28,7 @@ import 'rxjs/add/operator/switchMap'
 export class SnackbarComponent implements OnInit {
 
   message: string
-  snackVisibility: string = 'hidden'
+  snackVisibility = 'hidden'
 
   constructor(private notificationService: NotificationService) { }
 

@@ -46,8 +46,8 @@ export class RestaurantsComponent implements OnInit {
     })
 
     this.searchControl.valueChanges
-      .debounceTime(500) //delay para executar o resto do codigo
-      .distinctUntilChanged() //Executa apenas se for um valor distinto
+      .debounceTime(500)
+      .distinctUntilChanged()
       .switchMap(subscribe =>
         this.restaurantService.getRestaurants(subscribe)
           .catch(error => Observable.from([])))

@@ -7,7 +7,7 @@ import { CartItem } from 'app/restaurant-detail/shopping-cart/cart-item.model'
 })
 export class OrderItensComponent implements OnInit {
 
-  @Input() itens: CartItem[];
+  @Input() itens: CartItem[]
 
   @Output() increaseQtd = new EventEmitter<CartItem>()
   @Output() decreaseQtd = new EventEmitter<CartItem>()

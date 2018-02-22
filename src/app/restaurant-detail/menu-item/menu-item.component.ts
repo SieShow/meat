@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core'
 import { MenuItem } from './menu-item.model'
 import { trigger, state, style, transition, animate } from '@angular/animations'
 @Component({
@@ -17,7 +17,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class MenuItemComponent implements OnInit {
 
   menuItemStatus = 'ready'
-  
+
   @Input() menuItem: MenuItem
   @Output() add = new EventEmitter()
 

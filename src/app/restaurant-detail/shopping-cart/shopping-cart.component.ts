@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { ShoppingCartService } from './shopping-cart.service'
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations'
 @Component({

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { RestaurantService } from '../../restaurants/restaurants.service'
 import { Observable } from 'rxjs/Observable'
 import { ActivatedRoute } from '@angular/router'
