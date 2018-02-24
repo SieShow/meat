@@ -1,6 +1,14 @@
 {
-  "restaurants": [
+  "login": [{
+      "username": "lucas",
+      "password": "lucas123"
+    },
     {
+      "username": "teste",
+      "password": "teste123"
+    }
+  ],
+  "restaurants": [{
       "id": "bread-bakery",
       "name": "Bread & Bakery",
       "category": "Bakery",
@@ -61,8 +69,7 @@
       "hours": "Funciona de segunda à sábado, de 8h às 23h"
     }
   ],
-  "menu": [
-    {
+  "menu": [{
       "id": "cup-cake",
       "imagePath": "assets/img/foods/cupcake.png",
       "name": "Cup Cake",
@@ -207,8 +214,7 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "reviews": [
-    {
+  "reviews": [{
       "name": "Julia",
       "date": "2017-01-23T18:25:43",
       "rating": 4.5,
@@ -370,18 +376,15 @@
       "restaurantId": "tasty-treats"
     }
   ],
-  "orders": [
-    {
+  "orders": [{
       "address": "jgfjhgjh",
       "number": "123",
       "optionalAdress": "",
       "paymentOption": "MON",
-      "orderItens": [
-        {
-          "quantity": 3,
-          "menuID": "espreso"
-        }
-      ],
+      "orderItens": [{
+        "quantity": 3,
+        "menuID": "espreso"
+      }],
       "id": 1
     },
     {
@@ -389,12 +392,10 @@
       "number": "123",
       "optionalAdress": "312",
       "paymentOption": "MON",
-      "orderItens": [
-        {
-          "quantity": 1,
-          "menuID": "cup-cake"
-        }
-      ],
+      "orderItens": [{
+        "quantity": 1,
+        "menuID": "cup-cake"
+      }],
       "id": 2
     },
     {
@@ -402,12 +403,10 @@
       "number": "1516",
       "optionalAdress": "",
       "paymentOption": "MON",
-      "orderItens": [
-        {
-          "quantity": 3,
-          "menuID": "cup-cake"
-        }
-      ],
+      "orderItens": [{
+        "quantity": 3,
+        "menuID": "cup-cake"
+      }],
       "id": 3
     },
     {
@@ -418,12 +417,10 @@
       "number": "1415",
       "optionalAddress": "",
       "paymentOption": "MON",
-      "orderItens": [
-        {
-          "quantity": 1,
-          "menuID": "cup-cake"
-        }
-      ],
+      "orderItens": [{
+        "quantity": 1,
+        "menuID": "cup-cake"
+      }],
       "id": 4
     },
     {
@@ -434,12 +431,10 @@
       "number": "1234",
       "optionalAddress": "",
       "paymentOption": "MON",
-      "orderItens": [
-        {
-          "quantity": 1,
-          "menuID": "cup-cake"
-        }
-      ],
+      "orderItens": [{
+        "quantity": 1,
+        "menuID": "cup-cake"
+      }],
       "id": 5
     }
   ]
