@@ -1,6 +1,6 @@
 {
-    "compileOnSave": true,
-    "compileOptions": {
-        "outDir": "../json-server-heroku"
-    }
+  "compileOnSave": true,
+  "compilerOptions": {
+    "outDir": "dist"
+  }
 }
