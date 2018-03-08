@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms'
+import { Component, OnInit } from '@angular/core'
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms'
 
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
 
-import {RadioOption} from '../shared/radio/radio-option.model'
-import {OrderService} from './order.service'
-import {CartItem} from '../restaurant-detail/shopping-cart/cart-item.model'
-import {Order, OrderItem} from './order.model'
+import { RadioOption } from '../shared/radio/radio-option.model'
+import { OrderService } from './order.service'
+import { CartItem } from '../restaurant-detail/shopping-cart/cart-item.model'
+import { Order, OrderItem } from './order.model'
 
 import 'rxjs/add/operator/do'
 
@@ -27,14 +27,26 @@ export class OrderComponent implements OnInit {
   orderId: string
 
   paymentOptions: RadioOption[] = [
-    {label: 'Dinheiro', value: 'MON'},
-    {label: 'Cartão de Débito', value: 'DEB'},
-    {label: 'Cartão Refeição', value: 'REF'}
+    { label: 'Dinheiro', value: 'MON' },
+    { label: 'Cartão de Débito', value: 'DEB' },
+    { label: 'Cartão Refeição', value: 'REF' }
   ]
 
+  static equalsTo(group: AbstractControl): { [key: string]: boolean } {
+    const email = group.get('email')
+    const emailConfirmation = group.get('emailConfirmation')
+    if (!email || !emailConfirmation) {
+      return undefined
+    }
+    if (email.value !== emailConfirmation.value) {
+      return { emailsNotMatch: true }
+    }
+    return undefined
+  }
+
   constructor(private orderService: OrderService,
-              private router: Router,
-              private formBuilder: FormBuilder) { }
+    private router: Router,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.orderForm = this.formBuilder.group({
@@ -45,19 +57,7 @@ export class OrderComponent implements OnInit {
       number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.numberPattern)]),
       optionalAddress: this.formBuilder.control(''),
       paymentOption: this.formBuilder.control('', [Validators.required])
-    }, {validator: OrderComponent.equalsTo})
-  }
-
-  static equalsTo(group: AbstractControl): {[key: string]: boolean} {
-    const email = group.get('email')
-    const emailConfirmation = group.get('emailConfirmation')
-    if (!email || !emailConfirmation){
-      return undefined
-    }
-    if (email.value !== emailConfirmation.value){
-      return {emailsNotMatch: true}
-    }
-    return undefined
+    }, { validator: OrderComponent.equalsTo })
   }
 
   itemsValue(): number {
@@ -68,15 +68,15 @@ export class OrderComponent implements OnInit {
     return this.orderService.cartItems()
   }
 
-  increaseQty(item: CartItem){
+  increaseQty(item: CartItem) {
     this.orderService.increaseQty(item)
   }
 
-  decreaseQty(item: CartItem){
+  decreaseQty(item: CartItem) {
     this.orderService.decreaseQty(item)
   }
 
-  remove(item: CartItem){
+  remove(item: CartItem) {
     this.orderService.remove(item)
   }
 
@@ -84,7 +84,7 @@ export class OrderComponent implements OnInit {
     return this.orderId !== undefined
   }
 
-  checkOrder(order: Order){
+  checkOrder(order: Order) {
     order.orderItems = this.cartItems()
       .map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id))
 
@@ -92,10 +92,10 @@ export class OrderComponent implements OnInit {
       .do((orderId: string) => {
         this.orderId = orderId
       })
-      .subscribe( (orderId: string) => {
+      .subscribe((orderId: string) => {
         this.router.navigate(['/order-summary'])
         this.orderService.clear()
-    })
+      })
   }
 
 }
